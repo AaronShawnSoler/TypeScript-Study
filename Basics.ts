@@ -38,7 +38,7 @@ let isLegal: boolean[] = [true, false, false]
 let anyTypes: any[] = ['string', 123, false]
 let stringNumber: (string | number)[] = ['hello', 21, 'world', 45]
 
-// TUPLES
+// TUPLE TYPES
 
 let role: [number, string] = [0, 'owner']
 
@@ -49,7 +49,8 @@ enum Perms { ADMIN = 10, MODERATOR = 'MOD', USER = 'Member'}
 
 // UNION TYPES
 
-let both: string | number | boolean = 'union'
+let both: string | number | boolean
+both = 'union'
 both = 123
 both = false
 
@@ -119,3 +120,11 @@ function generateError(text: string, code: number): never {
 }
 
 generateError('An error occured', 500)
+
+// DEFAULT FUNCTION PARAMETERS
+
+function subtract(a: number, b: number = 1): number {
+  return a + b
+}
+
+subtract(5)
