@@ -45,6 +45,56 @@ console.log(BMW.miles)
 
 class Employee {
   constructor(private readonly id: string, public name: string) {
+    // CODE
+  }
+}
 
+// INHERITANCE
+
+class Athlete extends Person {
+  constructor(n: string, a: number, public medals: number) {
+    super(n, a)
+  }
+}
+
+
+// OVERRIDING INHERITED METHODS
+
+class Animal {
+  constructor(public sound: string) {
+    // CODE
+  }
+
+  makeSound() {
+    console.log(this.sound)
+  }
+}
+
+class Cat extends Animal {
+  constructor(sound: string) {
+    super(sound)
+  }
+
+  makeSound() {
+    console.log('Meow')
+  }
+}
+
+// PROTECTED ACCESS MODIFIER
+
+class Player {
+  constructor(protected health: number, private username: string) {
+    // Protected properties are shared between extended classes
+  }
+}
+
+class Armor extends Player {
+  constructor(health: number, username: string) {
+    super(health, username)
+  }
+
+  log() {
+    // Cant access private properites outside class scope
+    console.log(this.health)
   }
 }
