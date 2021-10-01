@@ -1,7 +1,7 @@
 // CLASSES
 
 class Department {
-  name: string
+  name: string // name property defined with type
 
   constructor(n: string) {
     this.name = n
@@ -13,8 +13,8 @@ const department = new Department('IT')
 // PRIVATE & PUBLIC ACCESS MODIFIERS
 
 class Person {
-  private name: string
-  public age: number
+  private name: string // Only accessible within this class scope
+  public age: number  // Can modify instance properties directly
 
   constructor(n: string, a: number) {
     this.name = n
@@ -33,7 +33,7 @@ Aaron.changeName('Soler')
 // SHORTHAND INITIALIZATION
 
 class Car {
-  constructor(public miles: number, private vin: string) {
+  constructor(public miles: number, private vin: string) { // Shorthand way of defining properties
     // CODE
   }
 }
@@ -44,7 +44,7 @@ console.log(BMW.miles)
 // READ ONLY PROPERTIES
 
 class Employee {
-  constructor(private readonly id: string, public name: string) {
+  constructor(private readonly id: string, public name: string) { // readonly and can't modify
     // CODE
   }
 }
@@ -53,7 +53,7 @@ class Employee {
 
 class Athlete extends Person {
   constructor(n: string, a: number, public medals: number) {
-    super(n, a)
+    super(n, a) // Call supers constructor
   }
 }
 
@@ -75,7 +75,7 @@ class Cat extends Animal {
     super(sound)
   }
 
-  makeSound() {
+  makeSound() { // redefine function to always meow instead of sound property
     console.log('Meow')
   }
 }
@@ -98,3 +98,33 @@ class Armor extends Player {
     console.log(this.health)
   }
 }
+
+// GETTERS & SETTERS
+
+class Classroom {
+  constructor(private students: string[]) {
+    this.students = ['hello', 'world']
+  }
+
+  get classmates() {
+    return this.students
+  }
+
+  set classmates(students: string[]) {
+    this.students = students
+  }
+}
+
+class School extends Classroom {
+  constructor(students: string[]) {
+    super(students)
+  }
+
+  logStudents() {
+    console.log(this.classmates) // Using a getter method from super to get value
+  }
+}
+
+const HighSchool = new School([])
+
+// 
