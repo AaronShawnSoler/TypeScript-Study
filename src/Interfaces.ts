@@ -69,4 +69,14 @@ class Greeting implements Hello {
   }
 }
 
-// 
+// INTERFACES AS FUNCTION TYPES
+
+interface addFn {
+  (numA: number, numB: number): number
+}
+
+let addFunction: addFn
+
+addFunction = (numA: number, numB: number): number {
+  return numA + numB
+}
