@@ -31,4 +31,42 @@ class Homosapien implements Human {
   }
 }
 
+// READ ONLY INTERFACE PROPERTIES
+
+interface Place {
+  readonly address: string
+}
+
+class Home implements Place {
+  constructor(public address: string) {
+
+  }
+}
+
+const HomeSweetHome = new Home('1234 City Ave')
+
+// EXTENDING INTERFACES
+
+interface Named {
+  readonly name: string
+}
+
+interface Aged {
+  age: number
+}
+
+interface Hello extends Named, Aged {
+  hello(message: string): void
+}
+
+class Greeting implements Hello {
+  constructor(public name: string, public age: number) {
+
+  }
+
+  hello(message: string): void {
+    console.log(message)
+  }
+}
+
 // 
