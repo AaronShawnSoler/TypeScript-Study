@@ -1,4 +1,4 @@
-// CLASSES
+// CLASS
 
 class Department {
   name: string // name property defined with type
@@ -153,4 +153,23 @@ class Interns extends Network {
   }
 }
 
-// 
+// SINGLETON & PRIVATE CONSTRUCTORS
+
+class Dept {
+  private static instance: Dept
+
+  private constructor(public name: string) {
+
+  }
+
+  static getInstance(name: string) {
+    if(this.instance) {
+      return this.instance
+    }
+    this.instance = new Dept(name)
+    return this.instance
+  }
+}
+
+const IT = Dept.getInstance('IT')
+IT.name
