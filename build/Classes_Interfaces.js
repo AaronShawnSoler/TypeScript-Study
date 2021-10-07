@@ -15,11 +15,6 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
-};
 var Department = /** @class */ (function () {
     function Department(n) {
         this.name = n;
@@ -119,16 +114,12 @@ var Classroom = /** @class */ (function () {
         this.students = students;
         this.students = ['hello', 'world'];
     }
-    Object.defineProperty(Classroom.prototype, "getStudents", {
+    Object.defineProperty(Classroom.prototype, "classmates", {
         get: function () {
             return this.students;
         },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(Classroom.prototype, "addStudents", {
-        set: function (student) {
-            this.students = __spreadArray(__spreadArray([], this.students), [student]);
+        set: function (students) {
+            this.students = students;
         },
         enumerable: false,
         configurable: true
@@ -141,9 +132,9 @@ var School = /** @class */ (function (_super) {
         return _super.call(this, students) || this;
     }
     School.prototype.logStudents = function () {
-        console.log(this.getStudents);
+        console.log(this.classmates); // Using a getter method from super to get value
     };
     return School;
 }(Classroom));
 var HighSchool = new School([]);
-HighSchool.logStudents();
+// 

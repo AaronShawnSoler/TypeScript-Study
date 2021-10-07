@@ -57,7 +57,6 @@ class Athlete extends Person {
   }
 }
 
-
 // OVERRIDING INHERITED METHODS
 
 class Animal {
@@ -126,5 +125,32 @@ class School extends Classroom {
 }
 
 const HighSchool = new School([])
+HighSchool.classmates
+HighSchool.classmates = ['Aaron', 'Soler'] // SET type has to be the same as the GET return type
+
+// STATIC METHODS AND PROPERTIES
+
+class Computer {
+  static year: number = 2021
+
+  static add(n1: number, n2: number): number {
+    return n1 + n2
+  }
+}
+
+Computer.year
+Computer.add(10, 20)
+
+// ABSTRACT CLASSES
+
+abstract class Network {
+  abstract user(username: string): void
+}
+
+class Interns extends Network {
+  user(username: string): void {
+    // CODE
+  }
+}
 
 // 
